@@ -63,7 +63,7 @@ class Node:
 
         self.last_update = rospy.Time.now().to_sec()
 
-    # Get walltime from topic and update own clock
+    # Get walltime from topic and compare to own clock
     def client(self):        
         # Compare absolute time difference from reference
         abs_time_diff = sqrt(( self.timeref_msg.time_ref.to_sec() - rospy.Time.now().to_sec() )**2)
