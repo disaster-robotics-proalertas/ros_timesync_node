@@ -20,7 +20,7 @@ class Node:
         rospy.init_node('timesync_node', anonymous=True)
 
         # Parameters
-        self.timeref_topic = rospy.get_param("~topic", "/%s/walltime/time_reference")
+        self.timeref_topic = rospy.get_param("~topic", "walltime/time_reference")
         self.mode = rospy.get_param("~mode", "server")
         self.tolerance = rospy.get_param("~tolerance", 2)   # Tolerance in seconds for considering as "synchronized"
 
@@ -38,10 +38,6 @@ class Node:
 
         # Rate
         self.rate = rospy.Rate(0.5) # Once every 2 secs
-
-        # Time manipulation
-        self.ts = Timespec()
-        self.librt = ctypes.CDLL(ctypes.util.find_library("rt"))
 
     def timeref_callback(self, msg):
         if self.mode == 'client':
