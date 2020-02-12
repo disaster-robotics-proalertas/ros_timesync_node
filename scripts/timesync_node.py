@@ -8,10 +8,6 @@ import socket
 
 CLOCK_REALTIME = 0
 
-class Timespec(ctypes.Structure):
-    _fields_ = [("tv_sec", ctypes.c_long),
-                ("tv_nsec", ctypes.c_long)]
-
 class Node:
     def __init__(self, **kwargs):
         self.system_name = socket.gethostname()
