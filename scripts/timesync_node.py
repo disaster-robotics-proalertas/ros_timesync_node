@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-import ctypes
-import ctypes.util
 from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 from math import sqrt
 import rospy
